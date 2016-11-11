@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Regal InfoService</title>
+		<link rel="stylesheet" type="text/css" href="regalstyle.css" />
+	</head>
+	<body>
+		<nav>
+			<ul>
+				<a class="brand-logo">Regal <span style="color:#29a329">InfoService</span></a>
+				<li><a href="index.html">HOME</a></li>
+				<li><a href="#job.html">JOB</a></li>
+				<li><a href="administration.html">ADMINISTRATION</a></li>
+				<li><a href="#about">ABOUT</a></li>
+			</ul>
+		</nav>
+		<h1>Administration</h1>
+		<ul class="tab">
+			<li><a href="#" class="tablinks" onclick="openConfig(event, 'Watchfolders')">Watchfolders</a></li>
+			<li><a href="#" class="tablinks" onclick="openConfig(event, 'Destinations')">Destinations</a></li>
+			<li><a href="#" class="tablinks" onclick="openConfig(event, 'Baton')">Baton</a></li>
+			<li><a href="#" class="tablinks" onclick="openConfig(event, 'EEG')">EEG</a></li>
+			<li><a href="#" class="tablinks" onclick="openConfig(event, 'AmberFin')">AmberFin</a></li>
+			<li><a href="#" class="tablinks" onclick="openConfig(event, 'Rules')">Rules</a></li>
+			<li><a href="#" class="tablinks" onclick="openConfig(event, 'Job Dashboard')">Job Dashboard</a></li>
+			<li><a href="#" class="tablinks" onclick="openConfig(event, 'System')">System</a></li>
+		</ul>
+		<div id="Watchfolders" class="tabcontent">
+			<h2>Watchfolder Configuration</h2>
+			<form action="">
+				<label>Name:</label><input type="text" name="Name" id="name"><br>
+				<label>Path:</label><input type="text" name="Path" id="path"><br>
+				<label>Alias:</label><input type="text" name="Alias" id="alias"><br>
+				<br/>
+				<fieldset>
+					<legend>File Growing Settings:</legend>
+					<label style="display: inline;">Time Interval:</label><input style="width: 10%;" type="text" name="Time_Interval" id="timeinterval"><label style="display: inline;">milliseconds</label><br>
+					<input type="radio" name="filegrowingtype" value="Check File Modification"><label style="display: inline;">Check File Modification</label>
+					<input type="radio" name="filegrowingtype" value="Windows Copy"><label style="display: inline;">Windows Copy</label>
+					<input type="radio" name="filegrowingtype" value="Check File Size"><label style="display: inline;">Check File Size</label>
+					<input type="radio" name="filegrowingtype" value="Signiant"><label style="display: inline;">Signiant</label>
+				</fieldset></br>
+				<fieldset>
+					<legend>File System:</legend>
+					<input type="checkbox" name="filesystem" value="Fetch File"><label style="display: inline;">Fetch File</label><br>
+				</fieldset></br>
+				<fieldset>
+					<legend>File Type Settings:</legend>
+					<label>File Type:</label>
+					<select>
+						<option value="*.mxf">*.mxf</option>
+						<option value="*.mov">*.mov</option>
+						<option value="*.mp4">*.mp4</option>
+					</select>
+					<label>Auxiliary Files:</label>
+					<input type="checkbox" name="filetype" value="XML"><label style="display: inline;">XML</label>
+					<input type="checkbox" name="filetype" value="SCC"><label style="display: inline;">SCC</label>
+					<input type="checkbox" name="filetype" value="XLSX"><label style="display: inline;">XLSX</label>
+				</fieldset></br>
+				<br>
+				<button onclick="modify()">Modify</button>
+				<button onclick="deletee()">Delete</button>
+				<br/>
+				<fieldset>
+
+			<table id="myTable" border="1px">
+				<thead>
+				<td width="8%">Name</td>
+				<td width="44%">Path</td>
+				<td width="8%">File Growing Type</td>
+				<td width="8%">Time Interval</td>
+				<td width="8%">File Type</td>
+				<td width="8%">Auxiliary File Type</td>
+				<td width="8%">Method</td>
+				<td width="8%">Alias</td>
+				</thead>
+			</table>
+				</fieldset>
+				</form>
+			</div>
+		</body>
+		</div>
+		<div id="Destinations" class="tabcontent">
+			<h2>Destination Configuration</h2>
+			<form action="">
+				<label>Name:</label><input type="text" name="Name" id="name1"><br>
+				<label>Path:</label><input type="text" name="Path" id="path1"><br>
+				<label>Alias:</label><input type="text" name="Alias"><br>
+				<br/>
+				<br>
+				<button onclick="modify()">Add</button>
+				<button onclick="deletee()">Delete</button>
+				<br/>
+			</form>
+		</div>
+		<div id="Baton" class="tabcontent">
+			<h2>Baton API Configuration</h2>
+		</div>
+		<div id="EEG" class="tabcontent">
+			<h2>EEG API Configuration</h2>
+		</div>
+		<div id="AmberFin" class="tabcontent">
+			<h2>AmberFin API Integration</h2>
+		</div>
+		<div id="Rules" class="tabcontent">
+			<h2>Rule Intgeration</h2>
+		</div>
+		<div id="Job Dashboard" class="tabcontent">
+			<h2>Job Dashboard Configuration</h2>
+		</div>
+		<div id="System" class="tabcontent">
+			<h2>System Configuration</h2>
+		</div>
+		
+		<script>
+			function openConfig(evt, configName) {
+				var i, tabcontent, tablinks;
+				tabcontent = document.getElementsByClassName("tabcontent");
+				for (i = 0; i < tabcontent.length; i++) {
+					tabcontent[i].style.display = "none";
+				}
+				tablinks = document.getElementsByClassName("tablinks");
+				for (i = 0; i < tablinks.length; i++) {
+					tablinks[i].className = tablinks[i].className.replace(" active", "");
+				}
+				document.getElementById(configName).style.display = "block";
+				evt.currentTarget.className += " active";
+			}
+			function modify(){
+				var table = document.getElementById("myTable");
+				var row = table.insertRow(1);
+				var cell1 = row.insertCell(0);
+				var cell2 = row.insertCell(1);
+				var cell3 = row.insertCell(2);
+				var cell4 = row.insertCell(3);
+				var cell5 = row.insertCell(4);
+				var cell6 = row.insertCell(5);
+				var cell7 = row.insertCell(6);
+				var cell8 = row.insertCell(7);
+				var name=document.getElementById("name").value;
+				var path=document.getElementById("path").value;
+				var alias=document.getElementById("alias").value;
+				var filegrowtype="Winsize";
+				var timeinterval=document.getElementById("timeinterval").value;
+				var filetype="MKD";
+				var auxfiletype="SCC";
+				cell1.innerHTML = name;
+				cell2.innerHTML = path;
+				cell3.innerHTML=filegrowtype;
+				cell4.innerHTML=timeinterval;
+				cell5.innerHTML=filetype;
+				cell6.innerHTML=auxfiletype;
+				cell7.innerHTML=alias;
+			}
+		</script>
+	</body>
+</html>
