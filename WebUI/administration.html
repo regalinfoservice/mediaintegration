@@ -16,17 +16,17 @@
 		</nav>
 		<h1>Administration</h1>
 		<ul class="tab">
-			<li><a href="#" class="tablinks" onclick="openConfig(event, 'Watchfolders')">Watchfolders</a></li>
-			<li><a href="#" class="tablinks" onclick="openConfig(event, 'Destinations')">Destinations</a></li>
+			<li><a href="#" class="tablinks" onclick="openConfig(event, 'Input Storage Pool')">Input Storage Pool</a></li>
+			<li><a href="#" class="tablinks" onclick="openConfig(event, 'Output Storage Pool')">Output Storage Pool</a></li>
 			<li><a href="#" class="tablinks" onclick="openConfig(event, 'Baton')">Baton</a></li>
-			<li><a href="#" class="tablinks" onclick="openConfig(event, 'EEG')">EEG</a></li>
-			<li><a href="#" class="tablinks" onclick="openConfig(event, 'AmberFin')">AmberFin</a></li>
-			<li><a href="#" class="tablinks" onclick="openConfig(event, 'Rules')">Rules</a></li>
-			<li><a href="#" class="tablinks" onclick="openConfig(event, 'Job Dashboard')">Job Dashboard</a></li>
-			<li><a href="#" class="tablinks" onclick="openConfig(event, 'System')">System</a></li>
+			<!--<li><a href="#" class="tablinks" onclick="openConfig(event, 'EEG')">EEG</a></li>-->
+			<!--<li><a href="#" class="tablinks" onclick="openConfig(event, 'AmberFin')">AmberFin</a></li>-->
+			<li><a href="#" class="tablinks" onclick="openConfig(event, 'Workflow Step')">Workflow Step</a></li>
+			<!--<li><a href="#" class="tablinks" onclick="openConfig(event, 'Job Dashboard')">Job Dashboard</a></li>-->
+			<!--<li><a href="#" class="tablinks" onclick="openConfig(event, 'System')">System</a></li>-->
 		</ul>
-		<div id="Watchfolders" class="tabcontent">
-			<h2>Watchfolder Configuration</h2>
+		<div id="Input Storage Pool" class="tabcontent">
+			<h2>Input Storage Pool Configuration</h2>
 			<form action="">
 				<label>Name:</label><input type="text" name="Name" id="name"><br>
 				<label>Path:</label><input type="text" name="Path" id="path"><br>
@@ -80,8 +80,8 @@
 			</div>
 		</body>
 		</div>
-		<div id="Destinations" class="tabcontent">
-			<h2>Destination Configuration</h2>
+		<div id="Output Storage Pool" class="tabcontent">
+			<h2>Output Storage Pool Configuration</h2>
 			<form action="">
 				<label>Name:</label><input type="text" name="Name" id="name1"><br>
 				<label>Path:</label><input type="text" name="Path" id="path1"><br>
@@ -102,8 +102,8 @@
 		<div id="AmberFin" class="tabcontent">
 			<h2>AmberFin API Integration</h2>
 		</div>
-		<div id="Rules" class="tabcontent">
-			<h2>Rule Intgeration</h2>
+		<div id="Workflow Step" class="tabcontent">
+			<h2>Workflow Step Intgeration</h2>
 		</div>
 		<div id="Job Dashboard" class="tabcontent">
 			<h2>Job Dashboard Configuration</h2>
